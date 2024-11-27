@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV['VAGRANT_NO_PARALLEL'] = 'yes'
+
+Vagrant.configure(2) do |config|
+
+  config.vm.provision "shell", path: "bootstrap.sh"
+  config.vm.provision "shell", path: "bootstrap-jenkins.sh"
+
+  NodeCount = 1
+
+  (1..NodeCount).each do |i|
+
+    config.vm.define "jenkinsvm#{i}" do |node|
+
+      node.vm.box               = "generic/ubuntu2204"
+      node.vm.box_check_update  = false
+      node.vm.box_version       = "4.2.16"
+      node.vm.hostname          = "jenkinsvm#{i}.example.com"
+
+      node.vm.network "private_network", ip: "172.16.16.11#{i}"
+
+      node.vm.provider :virtualbox do |v|
+        v.name    = "jenkinsvm#{i}"
+        v.memory  = 2048
+        v.cpus    = 1
+      end
+
+      node.vm.provider :libvirt do |v|
+        v.nested  = true
+        v.memory  = 1024
+        v.cpus    = 1
+      end
+
+    end
+
+  end
+
+end
