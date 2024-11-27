@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
       node.vm.box_version       = "4.2.16"
       node.vm.hostname          = "jenkinsvm#{i}.example.com"
 
-      node.vm.network "private_network", ip: "172.16.16.11#{i}"
+      node.vm.network "private_network", ip: "172.16.16.12#{i}"
 
       node.vm.provider :virtualbox do |v|
         v.name    = "jenkinsvm#{i}"
