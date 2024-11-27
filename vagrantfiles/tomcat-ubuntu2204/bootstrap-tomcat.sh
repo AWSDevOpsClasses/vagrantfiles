@@ -8,7 +8,8 @@ sudo apt install wget -y
 #sudo apt install fontconfig openjdk-17-jre -y
 #sudo apt install default-jdk -y
 sudo apt install openjdk-21-jdk -y
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.31/bin/apache-tomcat-10.1.31.tar.gz
+#sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.31/bin/apache-tomcat-10.1.31.tar.gz
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.33/bin/apache-tomcat-10.1.33.tar.gz
 sudo mkdir -p /opt/tomcat
 sudo tar xzvf apache-tomcat-*tar.gz -C /opt/tomcat --strip-components=1
 sudo groupadd tomcat
