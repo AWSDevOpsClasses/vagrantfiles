@@ -1,8 +1,8 @@
 #!/bin/bash
 sudo sed -i '21d' /etc/resolv.conf
 sudo sed -i '20i nameserver 8.8.8.8' /etc/resolv.conf
-echo "y" | sudo ufw enable
-sudo ufw allow 8080
+#echo "y" | sudo ufw enable
+#sudo ufw allow 8080
 
 sudo apt-get update -y
 sudo apt install wget -y
