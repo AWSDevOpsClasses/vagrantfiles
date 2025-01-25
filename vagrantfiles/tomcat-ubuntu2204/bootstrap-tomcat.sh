@@ -16,6 +16,7 @@ sudo groupadd tomcat
 sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 sudo chown -R tomcat: /opt/tomcat
 sudo sh -c 'chmod +x /opt/tomcat/bin/*.sh'
+# readlink -f $(which java)
 sudo cat << EOF > /etc/systemd/system/tomcat.service
 [Unit]
 Description=Tomcat webs servlet container
